@@ -50,9 +50,7 @@
                 add_headers(.headers = headers))
 
     json <-
-      res$content %>%
-      rawToChar() %>%
-      fromJSON(simplifyVector = T)
+      fromJSON(content(res, "text", encoding = "UTF-8"), simplifyVector = T)
 
     json
 
